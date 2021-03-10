@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        #ball_red {
+            width: 70px;
+            height: 70px;
+            border-radius: 50px;
+           
+            position: absolute;
+            
+        
+        }
+        
+    </style>
+<body onload="startGame()" onclick='toopPos(event)' onkeydown='ballMove(event)'>
+
+    <div id="ball_red" style="background-color: red;"></div>
+
+    
+    <p id="demo"></p>
+    <p id="yyy"></p>
+    <p id="xxx"></p>
+
+<script>
+
+
+
+    function startGame() {
+
+myball=document.getElementById("ball_red")
+myball.style.left='10px';
+myball.style.top='120px';
+
+
+}
+function toopPos(e){
+    var key = e.which || e.keyCode;
+
+
+      var x = e.clientX;
+      var y = e.clientY;
+      var coords = "X coords: " + x + ", Y coords: " + y;
+      document.getElementById("demo").innerHTML = coords;
+
+}
+
+function ballMove(e) {
+
+    var key = e.which || e.keyCode;
+
+ switch (key) {
+     case 65:
+         moveLeft();
+         break;
+     case 68: 
+         moveRight();
+         break;
+     case 87: 
+         moveUp();
+         break;
+     case 83:
+         moveDown();
+         break;
+
+ }
+
+
+}
+let x = 50;
+
+function moveLeft() {
+ myball.style.left = parseInt(myball.style.left) - x + 'px';
+}
+
+function moveRight() {
+ myball.style.left = parseInt(myball.style.left) + x + 'px';
+}
+
+function moveUp() {
+ myball.style.top = parseInt(myball.style.top) - x + 'px';
+
+}
+
+function moveDown() {
+ myball.style.top = parseInt(myball.style.top) + x + 'px';
+}
+
+    </script>
+    
+</body>
+</html>
